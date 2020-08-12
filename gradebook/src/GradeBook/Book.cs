@@ -33,7 +33,7 @@ namespace GradeBook
             foreach(var grade in grades) {
                 result.Average += grade;
                 result.High = Math.Max(grade, result.High);
-                result.Low = Math.Min(grade, result.High);
+                result.Low = Math.Min(grade, result.Low);
             }
             result.Average /= grades.Count;
 
@@ -54,7 +54,7 @@ namespace GradeBook
                 case var d when d > 60.0:
                     result.Letter = 'D';
                     break;
-                    
+
                 default:
                     result.Letter = 'F';
                     break;

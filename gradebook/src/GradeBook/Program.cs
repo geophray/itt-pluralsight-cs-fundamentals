@@ -26,7 +26,7 @@ namespace GradeBook
             }
         }
 
-        private static void EnterGrades(Book book)
+        private static void EnterGrades(IBook book)
         {
             var done = false;
 

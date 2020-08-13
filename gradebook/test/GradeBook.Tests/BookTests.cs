@@ -9,7 +9,7 @@ namespace GradeBook.Tests
         public void OnlyAddsGradesFromZeroToOneHundred()
         {
         //Given
-        var book = new Book("Grade Test");
+        var book = new InMemoryBook("Grade Test");
         book.AddGrade(101.0);
         book.AddGrade(-1.0);
         //When
@@ -22,7 +22,7 @@ namespace GradeBook.Tests
         public void BookCalculatesAnAverageGrade()
         {
             // arrange
-            var book = new Book("");
+            var book = new InMemoryBook("");
             book.AddGrade(89.1);
             book.AddGrade(90.5);
             book.AddGrade(77.3);

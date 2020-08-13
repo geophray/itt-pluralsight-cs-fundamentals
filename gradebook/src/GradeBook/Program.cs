@@ -9,35 +9,8 @@ namespace GradeBook
         {
             var book = new Book("My Math Gradebook");
             book.GradeAdded += OnGradeAdded;
-            
-            var done = false;
 
-            while(!done)
-            {   
-                Console.WriteLine($"Please enter a new grade to add to {book.Name}, or 'q' to quit");
-                var input = Console.ReadLine();
-
-                if(input == "q")
-                {
-                    done = true;
-                    continue;
-                }
-
-                try
-                {
-                    var grade = double.Parse(input);
-                    book.AddGrade(grade);
-                }
-                catch(ArgumentException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                catch(FormatException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-
-            }
+            EnterGrades(book);
 
             var stats = book.GetStatistics();
 
@@ -50,6 +23,38 @@ namespace GradeBook
             static void OnGradeAdded(object sender, EventArgs e)
             {
                 Console.WriteLine("A grade was added.");
+            }
+        }
+
+        private static void EnterGrades(Book book)
+        {
+            var done = false;
+
+            while (!done)
+            {
+                Console.WriteLine($"Please enter a new grade to add to {book.Name}, or 'q' to quit");
+                var input = Console.ReadLine();
+
+                if (input == "q")
+                {
+                    done = true;
+                    continue;
+                }
+
+                try
+                {
+                    var grade = double.Parse(input);
+                    book.AddGrade(grade);
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
             }
         }
     }

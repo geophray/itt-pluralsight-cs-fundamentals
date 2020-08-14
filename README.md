@@ -1,1 +1,1 @@
-# pluralsight-itt
+# C# Fundamentals w/ Scott Allen
